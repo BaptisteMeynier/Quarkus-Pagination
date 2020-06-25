@@ -13,17 +13,17 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
 @Provider
-public class PageInjector implements ContextInjector<Uni<Page>, Page> {
+public class PageInjector implements ContextInjector<Page, Page> {
 
     @Context
     UriInfo uriInfo;
 
-    @ConfigProperty(name = "quarkus.pagination.default-size")
-    private int size;
+    @ConfigProperty(name = "quarkus.pagination.default-size", defaultValue = "10")
+    int size;
 
     @Override
-    public Uni<Page> resolve(Class<? extends Uni<Page>> rawType, Type genericType, Annotation[] annotations) {
-        return Uni.createFrom().item(Page.of(getIndex(), getSize()));
+    public Page resolve(Class<? extends Page> rawType, Type genericType, Annotation[] annotations) {
+        return Page.of(getIndex(), getSize());
     }
 
     private int getIndex() {

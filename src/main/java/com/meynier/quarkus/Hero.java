@@ -1,4 +1,4 @@
-package com.meynier.quarkus.pagination;
+package com.meynier.quarkus;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 

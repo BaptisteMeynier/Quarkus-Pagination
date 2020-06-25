@@ -1,5 +1,5 @@
 INSERT INTO HERO (id,name,age) VALUES (1,'Hercule',12);
-INSERT INTO HERO (id,name,age) VALUES (2,'Lanfeust',21);
+INSERT INTO HERO (id,name,age) VALUES (2,'Persé',21);
 INSERT INTO HERO (id,name,age) VALUES (3,'Asbel',35);
 INSERT INTO HERO (id,name,age) VALUES (4,'Batman',123);
 INSERT INTO HERO (id,name,age) VALUES (5,'SuperMan',21);
