@@ -3,6 +3,7 @@ package com.meynier.quarkus;
 import com.meynier.quarkus.pagination.Paginated;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.panache.common.Page;
+import io.quarkus.panache.common.Sort;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -21,10 +22,13 @@ public class HeroResource {
     @Context
     Page page;
 
+    @Context
+    Sort sort;
+
     @GET
     public Response findAll() {
         Response response = Response.status(NOT_FOUND).build();
-        final List<PanacheEntityBase> heroes = Hero.findAll().page(page).list();
+        final List<PanacheEntityBase> heroes = Hero.findAll(sort).page(page).list();
         if (!heroes.isEmpty()) {
             int totalHeroes = (int) Hero.findAll().count();
             response = Response.ok()
